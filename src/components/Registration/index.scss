@@ -1,0 +1,110 @@
+@mixin flex-container($direction, $justify, $align) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.registration-form-container {
+    @include flex-container(column, center, center);
+    padding: 150px 0;
+
+    .registration-form-text-container {
+        max-width: 530px;
+
+        h1 {
+            text-align: center;
+        }
+
+        h6 {
+            text-align: center;
+            padding: 10px 30px 20px 30px;
+            color: rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+            line-height: 25px;
+        }
+
+        .registration-form {
+            padding: 0 20px;
+
+            .radio-buttons-container {
+                @include flex-container(column, flex-start, flex-start);
+
+                h6 {
+                    padding: 0 0 20px 0;
+                    margin: 0;
+                    color: black;
+                    font-weight: 400;
+                }
+
+                .radio-container {
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    display: flex;
+                    align-items: flex-start;
+                    cursor: pointer;
+
+                    input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+
+                        &:checked ~ .checkmark {
+                            background-color: #2196f3;
+                            border: none;
+                        }
+
+                        &:checked ~ .checkmark::after {
+                            display: block;
+                        }
+                    }
+
+                    .checkmark {
+                        height: 20px;
+                        width: 20px;
+                        background-color: white;
+                        border: 1px solid rgba(0, 0, 0, 0.3);
+                        border-radius: 50%;
+                        margin-top: 2px;
+                        cursor: pointer;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            display: none;
+                        }
+                    }
+
+                    p {
+                        padding-left: 10px;
+                        margin: 0;
+                    }
+                    .checkmark::after {
+                        margin: 6px;
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                        background: white;
+                    }
+                }
+            }
+
+            .upload-photo-container {
+                @include flex-container(column, flex-start, flex-start);
+                h6 {
+                    padding: 20px 0 10px 0;
+                    margin: 0;
+                    color: black;
+                    font-weight: 400;
+                }
+            }
+
+            .submit-button-container {
+                padding: 2em 0;
+            }
+        }
+    }
+}

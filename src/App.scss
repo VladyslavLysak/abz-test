@@ -1,0 +1,81 @@
+@import "./components/Header";
+@import "./components/Footer";
+@import "./components/Persons";
+@import "./components/Registration";
+@import "./components//PhoneMenu";
+@import "./pages/Home";
+@import "./pages/Error";
+@import "./Media";
+
+* {
+    font-family: Open Sans;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+@mixin flex-container($direction, $justify, $align) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+h1 {
+    font-size: 50px !important;
+    line-height: 54px !important;
+}
+
+p {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.main-container {
+    width: 100%;
+    padding: 0 80px;
+    margin-right: auto;
+    margin-left: auto;
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+    .content {
+        flex: 1;
+    }
+
+    footer {
+        flex: 0;
+    }
+}
+
+.mobile {
+    display: none;
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.center {
+    @include flex-container(row, center, center);
+    align-items: center;
+}
+
+.button {
+    padding: 7px 60px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #ef5b4c;
+
+    &:hover {
+        background-color: #c73121;
+    }
+}
